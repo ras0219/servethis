@@ -1,0 +1,24 @@
+diff --git a/configure.ac b/configure.ac
+index ea49349..b0fc228 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -352,7 +352,7 @@ AS_CASE(["$host_os"],
+      mhd_host_os='Windows (Cygwin)'
+      AC_MSG_RESULT([[$mhd_host_os]])
+      os_is_windows=yes],
+-  [*mingw*],
++  [*mingw* | *msys*],
+   [AC_DEFINE_UNQUOTED(MINGW,1,[This is a MinGW system])
+      AC_DEFINE_UNQUOTED(WINDOWS,1,[This is a Windows system])
+      mhd_host_os='Windows (MinGW)'
+@@ -1467,6 +1467,10 @@ AS_CASE(["$host"],
+     AC_DEFINE([_MHD_EXTERN], [__attribute__((visibility("default"))) __declspec(dllexport) extern],
+               [defines how to decorate public symbols while building])
+     HIDDEN_VISIBILITY_CFLAGS="-fvisibility=hidden"
++  ],[*-*-msys*],[
++    dnl with msvc we do __declspec(dllexport)
++    AC_DEFINE([_MHD_EXTERN], [__declspec(dllexport) extern],
++              [defines how to decorate public symbols while building])
+   ],[
+     dnl on other compilers, check if we can do -fvisibility=hidden
+     AX_CHECK_LINK_FLAG([-fvisibility=hidden],

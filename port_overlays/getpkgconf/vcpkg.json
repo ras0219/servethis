@@ -1,0 +1,10 @@
+{
+  "name": "getpkgconf",
+  "version": "1",
+  "dependencies": [
+    {
+      "name": "pkgconf",
+      "host": true
+    }
+  ]
+}

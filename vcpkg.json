@@ -1,0 +1,10 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg/master/scripts/vcpkg.schema.json",
+  "name": "servethis",
+  "version-string": "0.0.0",
+  "dependencies": [
+    "libmicrohttpd",
+    "getpkgconf"
+  ],
+  "builtin-baseline": "a924ea237279ce9bea7c79bc80a4b65e554dac92"
+}

@@ -1,0 +1,15 @@
+diff --git a/w32/common/libmicrohttpd-build-settings.vcxproj b/w32/common/libmicrohttpd-build-settings.vcxproj
+index 97d84a8..cfce1d9 100644
+--- a/w32/common/libmicrohttpd-build-settings.vcxproj
++++ b/w32/common/libmicrohttpd-build-settings.vcxproj
+@@ -31,8 +31,8 @@
+   <ItemDefinitionGroup Condition="'$(ConfigurationType)'=='StaticLibrary'">
+     <ClCompile>
+       <PreprocessorDefinitions>_LIB;MHD_W32LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+-      <RuntimeLibrary Condition="'$(UseDebugLibraries)'=='true'">MultiThreadedDebug</RuntimeLibrary>
+-      <RuntimeLibrary Condition="'$(UseDebugLibraries)'!='true'">MultiThreaded</RuntimeLibrary>
++      <RuntimeLibrary Condition="'$(UseDebugLibraries)'=='true'">MultiThreadedDebug$(RuntimeLibraryDLL)</RuntimeLibrary>
++      <RuntimeLibrary Condition="'$(UseDebugLibraries)'!='true'">MultiThreaded$(RuntimeLibraryDLL)</RuntimeLibrary>
+     </ClCompile>
+     <Lib>
+       <AdditionalDependencies>Ws2_32.lib</AdditionalDependencies>
